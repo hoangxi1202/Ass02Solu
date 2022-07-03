@@ -53,7 +53,7 @@ namespace SalesWinApp
         {
             frmViewOrder frmViewOrder = new frmViewOrder
             {
-                Text = "Update a car",
+                Text = "Update a order",
                 InsertOrUpdate = true,
                 OrderInfo = GetOrderObject(),
                 OrderRepository = orderRepository
@@ -225,6 +225,27 @@ namespace SalesWinApp
                 LoadOrderList();
                 source.Position = source.Count - 1;
             }
+        }
+
+        private void dgvOrderList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnViewDetail.Enabled = true;
+        }
+
+        private void btnViewDetail_Click(object sender, EventArgs e)
+        {
+            frmOrderDetail frmOrderDetail = new frmOrderDetail
+            {
+                Text = "View order details",
+                OrderInfo = GetOrderObject()
+            };
+            
+            if (frmOrderDetail.ShowDialog() == DialogResult.OK)
+            {
+                LoadOrderList();
+                source.Position = source.Count - 1;
+            }
+            
         }
     }
     public record OrderError()

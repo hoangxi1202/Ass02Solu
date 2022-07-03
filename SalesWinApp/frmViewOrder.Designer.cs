@@ -74,7 +74,7 @@
             // lbOrderDate
             // 
             this.lbOrderDate.AutoSize = true;
-            this.lbOrderDate.Location = new System.Drawing.Point(27, 176);
+            this.lbOrderDate.Location = new System.Drawing.Point(27, 181);
             this.lbOrderDate.Name = "lbOrderDate";
             this.lbOrderDate.Size = new System.Drawing.Size(83, 20);
             this.lbOrderDate.TabIndex = 3;
@@ -83,7 +83,7 @@
             // lbRequiredDate
             // 
             this.lbRequiredDate.AutoSize = true;
-            this.lbRequiredDate.Location = new System.Drawing.Point(27, 225);
+            this.lbRequiredDate.Location = new System.Drawing.Point(27, 230);
             this.lbRequiredDate.Name = "lbRequiredDate";
             this.lbRequiredDate.Size = new System.Drawing.Size(105, 20);
             this.lbRequiredDate.TabIndex = 4;
@@ -92,7 +92,7 @@
             // lbShippedDate
             // 
             this.lbShippedDate.AutoSize = true;
-            this.lbShippedDate.Location = new System.Drawing.Point(27, 275);
+            this.lbShippedDate.Location = new System.Drawing.Point(27, 276);
             this.lbShippedDate.Name = "lbShippedDate";
             this.lbShippedDate.Size = new System.Drawing.Size(100, 20);
             this.lbShippedDate.TabIndex = 5;
@@ -124,7 +124,7 @@
             // 
             this.dtOrderDate.CustomFormat = " ";
             this.dtOrderDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtOrderDate.Location = new System.Drawing.Point(165, 171);
+            this.dtOrderDate.Location = new System.Drawing.Point(165, 176);
             this.dtOrderDate.Name = "dtOrderDate";
             this.dtOrderDate.Size = new System.Drawing.Size(250, 27);
             this.dtOrderDate.TabIndex = 9;
@@ -134,7 +134,7 @@
             // 
             this.dtRequiredDate.CustomFormat = " ";
             this.dtRequiredDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtRequiredDate.Location = new System.Drawing.Point(165, 220);
+            this.dtRequiredDate.Location = new System.Drawing.Point(165, 225);
             this.dtRequiredDate.Name = "dtRequiredDate";
             this.dtRequiredDate.Size = new System.Drawing.Size(250, 27);
             this.dtRequiredDate.TabIndex = 10;
@@ -144,7 +144,7 @@
             // 
             this.dtShippedDate.CustomFormat = " ";
             this.dtShippedDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtShippedDate.Location = new System.Drawing.Point(165, 270);
+            this.dtShippedDate.Location = new System.Drawing.Point(165, 271);
             this.dtShippedDate.Name = "dtShippedDate";
             this.dtShippedDate.Size = new System.Drawing.Size(250, 27);
             this.dtShippedDate.TabIndex = 11;
@@ -153,7 +153,7 @@
             // btnSave
             // 
             this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSave.Location = new System.Drawing.Point(165, 325);
+            this.btnSave.Location = new System.Drawing.Point(165, 326);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 29);
             this.btnSave.TabIndex = 12;
@@ -164,7 +164,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(321, 325);
+            this.btnCancel.Location = new System.Drawing.Point(321, 326);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(94, 29);
             this.btnCancel.TabIndex = 13;
@@ -176,7 +176,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(466, 395);
+            this.ClientSize = new System.Drawing.Size(453, 376);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dtShippedDate);
@@ -192,7 +192,7 @@
             this.Controls.Add(this.lbMemberID);
             this.Controls.Add(this.lbOrderID);
             this.Name = "frmViewOrder";
-            this.Text = "frmViewOrder";
+            this.Text = "View Order";
             this.Load += new System.EventHandler(this.frmViewOrder_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

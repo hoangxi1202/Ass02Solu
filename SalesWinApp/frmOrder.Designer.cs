@@ -45,6 +45,7 @@
             this.dtRequiredDate = new System.Windows.Forms.DateTimePicker();
             this.dtShippedDate = new System.Windows.Forms.DateTimePicker();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.btnViewDetail = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -140,6 +141,7 @@
             this.dgvOrderList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrderList.Size = new System.Drawing.Size(776, 214);
             this.dgvOrderList.TabIndex = 12;
+            this.dgvOrderList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderList_CellClick);
             this.dgvOrderList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvOrderList_CellDoubleClick);
             this.dgvOrderList.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderList_RowEnter);
             // 
@@ -214,7 +216,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(346, 165);
+            this.btnAdd.Location = new System.Drawing.Point(466, 165);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(94, 29);
             this.btnAdd.TabIndex = 22;
@@ -222,11 +224,22 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // btnViewDetail
+            // 
+            this.btnViewDetail.Location = new System.Drawing.Point(240, 165);
+            this.btnViewDetail.Name = "btnViewDetail";
+            this.btnViewDetail.Size = new System.Drawing.Size(94, 29);
+            this.btnViewDetail.TabIndex = 23;
+            this.btnViewDetail.Text = "View Detail";
+            this.btnViewDetail.UseVisualStyleBackColor = true;
+            this.btnViewDetail.Click += new System.EventHandler(this.btnViewDetail_Click);
+            // 
             // frmOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 455);
+            this.Controls.Add(this.btnViewDetail);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dtShippedDate);
             this.Controls.Add(this.dtRequiredDate);
@@ -273,5 +286,6 @@
         private DateTimePicker dtRequiredDate;
         private DateTimePicker dtShippedDate;
         private Button btnAdd;
+        private Button btnViewDetail;
     }
 }
