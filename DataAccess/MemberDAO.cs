@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BusinessObject.Models;
-
+using Microsoft.Extensions.Configuration;
 namespace BusinessObject.DataAccess
 {
     public class MemberDAO
@@ -45,6 +45,29 @@ namespace BusinessObject.DataAccess
                 }
                 else { result = true; }
             }
+            return result;
+        }
+        public Member GetAdminAccount()
+        {
+            IConfiguration config = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json", true, true)
+            .Build();
+            return new Member
+            {
+                Email = config["AccountAdmin:UserName"],
+                Password = config["AccountAdmin:Password"],
+            };
+        }
+        public bool IsAdmin(string userName, string password)
+        {
+            bool result = false;
+            Member c = GetAdminAccount();
+            if (c.Email.Equals(userName) && c.Password.Equals(password))
+            {
+                result = true;
+            }
+
             return result;
         }
         public List<Member> GetMembers()
@@ -104,6 +127,26 @@ namespace BusinessObject.DataAccess
             {
                 throw new Exception("Update a member unsuccessfully");
             }
+        }
+        public Member? GetMemberByEmail(string email)
+        {
+            
+            FStoreContext DbContext = new FStoreContext();
+            Member? member = DbContext.Members
+                    .Where(b => b.Email == email)
+                    .FirstOrDefault();
+            
+            return member;
+        }
+        public Member? GetMemberByID(int id)
+        {
+
+            FStoreContext DbContext = new FStoreContext();
+            Member? member = DbContext.Members
+                    .Where(b => b.MemberId == id)
+                    .FirstOrDefault();
+
+            return member;
         }
     }
 }

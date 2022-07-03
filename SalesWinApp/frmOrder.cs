@@ -23,6 +23,25 @@ namespace SalesWinApp
         {
             InitializeComponent();
         }
+        public frmOrder(bool isAdmin)
+        {
+            InitializeComponent();
+            IsAdmin = isAdmin;
+        }
+        public frmOrder(bool isAdmin, Member mem)
+        {
+            InitializeComponent();
+            IsAdmin = isAdmin;
+            Mem = mem;
+        }
+        public bool IsAdmin { get; set; }
+        public Member Mem { get; set; }
+        void authen()
+        {
+            btnLoad.Enabled = false;
+            btnAdd.Enabled = false;
+            btnDelete.Enabled = false;  
+        }
         private void LoadOrderList()
         {
             try
@@ -31,6 +50,24 @@ namespace SalesWinApp
                 source = new BindingSource();
                 List<Order> listOrders = orderRepository.GetOrders();
                 source.DataSource = orders;
+                dgvOrderList.DataSource = source;
+                dgvOrderList.Columns[6].Visible = false;
+                dgvOrderList.Columns[7].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Order Management - Load List Order",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void LoadOrderListByMemberID()
+        {
+            try
+            {
+                
+                source = new BindingSource();
+                List<Order> listOrders = orderRepository.GetOrderByMemberID(Mem.MemberId);
+                source.DataSource = listOrders;
                 dgvOrderList.DataSource = source;
                 dgvOrderList.Columns[6].Visible = false;
                 dgvOrderList.Columns[7].Visible = false;
@@ -134,7 +171,16 @@ namespace SalesWinApp
 
         private void frmOrder_Load(object sender, EventArgs e)
         {
-            LoadOrderList();
+            
+            if (IsAdmin)
+            {
+                LoadOrderList();
+            }
+            else
+            {
+                authen();
+                LoadOrderListByMemberID();
+            }
         }
 
         private void dgvOrderList_RowEnter(object sender, DataGridViewCellEventArgs e)

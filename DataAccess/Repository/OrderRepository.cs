@@ -9,6 +9,8 @@ namespace BusinessObject.Repository
 
         public void DeleteOrder(int orderID) => OrderDAO.Instance.DeleteOrder(orderID);
 
+        public List<Order> GetOrderByMemberID(int memberID) => OrderDAO.Instance.GetOrderByMemberID(memberID);
+
         public List<Order> GetOrders() => OrderDAO.Instance.GetOrders();
 
         public void UpdateOrder(Order order) => OrderDAO.Instance.UpdateOrder(order);

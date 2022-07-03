@@ -39,6 +39,22 @@ namespace BusinessObject.DataAccess
             }
             return listOrders;
         }
+        public List<Order>  GetOrderByMemberID(int memberID)
+        {
+            List<Order> listOrders = new List<Order>();
+            try
+            {
+                FStoreContext DbContext = new FStoreContext();
+                listOrders = DbContext.Orders
+                            .Where(b => b.MemberId == memberID)
+                            .ToList();
+            }
+            catch (Exception)
+            {
+                throw new Exception("Get list orders unsuccessfully");
+            }
+            return listOrders;
+        }
 
         public void AddNewOrder(Order order)
         {
