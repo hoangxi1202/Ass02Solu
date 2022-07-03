@@ -71,6 +71,7 @@ namespace BusinessObject.DataAccess
         {
             try
             {
+                
                 FStoreContext DbContext = new FStoreContext();
                 Product? product = DbContext.Products.SingleOrDefault(product => product.ProductId == productID);
                 DbContext.Products.Remove(product);

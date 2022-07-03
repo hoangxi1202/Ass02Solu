@@ -15,11 +15,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business Layer", "Business 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Layer", "Data Layer", "{429169AD-6D56-4EAF-8A85-29D05EFDEBEB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Class", "Class", "{8C968B42-496B-4583-9C72-7E757AECFE8F}"
-	ProjectSection(SolutionItems) = preProject
-		Functions.cs = Functions.cs
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
