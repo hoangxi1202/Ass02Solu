@@ -175,7 +175,6 @@ namespace SalesWinApp
         {
             dtOrderDate.CustomFormat = "dd/MM/yyyy HH:mm";
         }
-
         public record OrderError()
         {
             public string? orderIdError { get; set; }
