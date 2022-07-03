@@ -29,6 +29,7 @@ namespace SalesWinApp
         {
             btnLoad.Enabled = false;
             btnNew.Enabled = false;
+            btnDelete.Enabled = false;
         }
         private void frmMember_Load(object sender, EventArgs e)
         {
