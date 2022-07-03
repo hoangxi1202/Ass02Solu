@@ -29,7 +29,7 @@ namespace SalesWinApp
         {
             btnLoad.Enabled = false;
             btnNew.Enabled = false;
-            btnDelete.Enabled = false;
+           // btnDelete.Enabled = false;
         }
         private void frmMember_Load(object sender, EventArgs e)
         {
@@ -151,7 +151,14 @@ namespace SalesWinApp
                 try
                 {
                     var member = GetMemberObject();
-                    memberRepository.DeleteMember(member.MemberId);
+                    if(member.MemberId == Mem.MemberId)
+                    {
+                        MessageBox.Show("Login Successfully", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);                     
+                    }
+                    else
+                    {
+                        memberRepository.DeleteMember(member.MemberId);
+                    }                   
                     var members1 = memberRepository.GetMembers();
                     LoadMemberList(members1);
                 }
