@@ -53,6 +53,7 @@ namespace SalesWinApp
                 dgvOrderList.DataSource = source;
                 dgvOrderList.Columns[6].Visible = false;
                 dgvOrderList.Columns[7].Visible = false;
+                
             }
             catch (Exception ex)
             {
