@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using BusinessObject.Models;
 namespace SalesWinApp
 {
     public partial class frmMain : Form
@@ -16,15 +16,43 @@ namespace SalesWinApp
         {
             InitializeComponent();
         }
-
+        public frmMain(bool isAdmin)
+        {
+            InitializeComponent();
+            IsAdmin = isAdmin;
+        }
+        public frmMain(bool isAdmin, Member member)
+        {
+            InitializeComponent();
+            IsAdmin = isAdmin;
+            Mem = member;
+        }
+        public bool IsAdmin { get; set; }
+        public Member Mem { get; set; }
+        void authen()
+        {
+            mnProduct.Enabled = false;
+            mnReport.Enabled = false;
+        }
         private void frmMain_Load(object sender, EventArgs e)
         {
-
+            if (IsAdmin == false)
+            {
+                authen();
+            }
         }
 
         private void mnMember_Click(object sender, EventArgs e)
         {
-            frmMember frm = new frmMember();
+            frmMember frm;
+            if (IsAdmin)
+            {
+                frm = new frmMember(IsAdmin);
+            }
+            else
+            {
+                frm = new frmMember(IsAdmin,Mem);
+            }
             if (checkMidChildren(frm.Name))
             {
                 frm.MdiParent = this;

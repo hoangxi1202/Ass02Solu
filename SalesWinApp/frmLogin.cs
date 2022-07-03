@@ -1,4 +1,5 @@
 using BusinessObject.Repository;
+using BusinessObject.Models;
 namespace SalesWinApp
 {
     public partial class frmLogin : Form
@@ -21,11 +22,20 @@ namespace SalesWinApp
                 string userName = txtUserName.Text;
                 string password = txtPassword.Text;
                 MemberRepository = new MemberRepository();
-
+                bool isAdmin = MemberRepository.IsAdmin(userName, password);
                 if (MemberRepository.CheckLogin(userName, password))
                 {
                     DialogResult dg = MessageBox.Show("Login Successfully", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    frmMain frmMain = new frmMain();
+                    frmMain frmMain;
+                    if (isAdmin)
+                    {
+                        frmMain = new frmMain(isAdmin);
+                    }
+                    else
+                    {
+                        Member mem = MemberRepository.GetMemberByEmail(userName);
+                        frmMain = new frmMain(isAdmin, mem);
+                    }
                     frmMain.ShowDialog();
                     this.Close();
                 }
