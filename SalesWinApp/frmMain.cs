@@ -94,7 +94,13 @@ namespace SalesWinApp
 
         private void mnReport_Click(object sender, EventArgs e)
         {
+            frmReport frm = new frmReport();
 
+            if (checkMidChildren(frm.Name))
+            {
+                frm.MdiParent = this;
+                frm.Show();
+            }
         }
         private bool checkMidChildren(string frmFormName)
         {

@@ -23,7 +23,7 @@ namespace SalesWinApp
                 string password = txtPassword.Text;
                 MemberRepository = new MemberRepository();
                 bool isAdmin = MemberRepository.IsAdmin(userName, password);
-                if (MemberRepository.CheckLogin(userName, password))
+                if (isAdmin || MemberRepository.CheckLogin(userName, password))
                 {
                     DialogResult dg = MessageBox.Show("Login Successfully", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     frmMain frmMain;
