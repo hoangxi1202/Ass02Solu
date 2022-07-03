@@ -11,6 +11,7 @@ namespace BusinessObject.Repository
     public interface IOrderRepository
     {
         public List<Order> GetOrders();
+        public List<Order> GetOrderByMemberID(int memberID);
         public void AddNewOrder(Order order);
         public void UpdateOrder(Order order);
         public void DeleteOrder(int orderID);

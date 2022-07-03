@@ -65,6 +65,7 @@ namespace SalesWinApp
         private void mnProduct_Click(object sender, EventArgs e)
         {
             frmProduct frm = new frmProduct();
+
             if (checkMidChildren(frm.Name))
             {
                 frm.MdiParent = this;
@@ -75,6 +76,15 @@ namespace SalesWinApp
         private void mnOrder_Click(object sender, EventArgs e)
         {
             frmOrder frm = new frmOrder();
+            if (IsAdmin)
+            {
+                frm = new frmOrder(IsAdmin);
+            }
+            else
+            {
+                frm = new frmOrder(IsAdmin, Mem);
+            }
+
             if (checkMidChildren(frm.Name))
             {
                 frm.MdiParent = this;
