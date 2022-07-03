@@ -34,12 +34,12 @@
             this.lbCity = new System.Windows.Forms.Label();
             this.lbCountry = new System.Windows.Forms.Label();
             this.lbPassword = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtMemberId = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtCompanyName = new System.Windows.Forms.TextBox();
+            this.txtCity = new System.Windows.Forms.TextBox();
+            this.txtCountry = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -102,47 +102,47 @@
             this.lbPassword.TabIndex = 5;
             this.lbPassword.Text = "Password";
             // 
-            // textBox1
+            // txtMemberId
             // 
-            this.textBox1.Location = new System.Drawing.Point(187, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(209, 27);
-            this.textBox1.TabIndex = 6;
+            this.txtMemberId.Location = new System.Drawing.Point(187, 36);
+            this.txtMemberId.Name = "txtMemberId";
+            this.txtMemberId.Size = new System.Drawing.Size(209, 27);
+            this.txtMemberId.TabIndex = 6;
             // 
-            // textBox2
+            // txtEmail
             // 
-            this.textBox2.Location = new System.Drawing.Point(187, 83);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(209, 27);
-            this.textBox2.TabIndex = 7;
+            this.txtEmail.Location = new System.Drawing.Point(187, 83);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(209, 27);
+            this.txtEmail.TabIndex = 7;
             // 
-            // textBox3
+            // txtCompanyName
             // 
-            this.textBox3.Location = new System.Drawing.Point(187, 127);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(209, 27);
-            this.textBox3.TabIndex = 8;
+            this.txtCompanyName.Location = new System.Drawing.Point(187, 127);
+            this.txtCompanyName.Name = "txtCompanyName";
+            this.txtCompanyName.Size = new System.Drawing.Size(209, 27);
+            this.txtCompanyName.TabIndex = 8;
             // 
-            // textBox4
+            // txtCity
             // 
-            this.textBox4.Location = new System.Drawing.Point(530, 36);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(209, 27);
-            this.textBox4.TabIndex = 9;
+            this.txtCity.Location = new System.Drawing.Point(530, 36);
+            this.txtCity.Name = "txtCity";
+            this.txtCity.Size = new System.Drawing.Size(209, 27);
+            this.txtCity.TabIndex = 9;
             // 
-            // textBox5
+            // txtCountry
             // 
-            this.textBox5.Location = new System.Drawing.Point(530, 83);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(209, 27);
-            this.textBox5.TabIndex = 10;
+            this.txtCountry.Location = new System.Drawing.Point(530, 83);
+            this.txtCountry.Name = "txtCountry";
+            this.txtCountry.Size = new System.Drawing.Size(209, 27);
+            this.txtCountry.TabIndex = 10;
             // 
-            // textBox6
+            // txtPassword
             // 
-            this.textBox6.Location = new System.Drawing.Point(530, 124);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(209, 27);
-            this.textBox6.TabIndex = 11;
+            this.txtPassword.Location = new System.Drawing.Point(530, 124);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(209, 27);
+            this.txtPassword.TabIndex = 11;
             // 
             // btnLoad
             // 
@@ -207,12 +207,12 @@
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnNew);
             this.Controls.Add(this.btnLoad);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtCountry);
+            this.Controls.Add(this.txtCity);
+            this.Controls.Add(this.txtCompanyName);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtMemberId);
             this.Controls.Add(this.lbPassword);
             this.Controls.Add(this.lbCountry);
             this.Controls.Add(this.lbCity);
@@ -237,12 +237,12 @@
         private Label lbCity;
         private Label lbCountry;
         private Label lbPassword;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
-        private TextBox textBox6;
+        private TextBox txtMemberId;
+        private TextBox txtEmail;
+        private TextBox txtCompanyName;
+        private TextBox txtCity;
+        private TextBox txtCountry;
+        private TextBox txtPassword;
         private Button btnLoad;
         private Button btnNew;
         private Button btnDelete;
