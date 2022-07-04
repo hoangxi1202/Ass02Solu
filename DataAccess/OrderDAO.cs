@@ -99,6 +99,28 @@ namespace BusinessObject.DataAccess
                 throw new Exception("Update a order unsuccessfully");
             }
         }
+        public List<Order> GetOrdersByDate(DateTime date1, DateTime date2)
+        {
+            List<Order> listOrders = new List<Order>();
+            if(date1 > date2)
+            {
+                var date = date1;
+                date1 = date2;
+                date2 = date;
+            }
+            try
+            {
+                FStoreContext DbContext = new FStoreContext();
+                listOrders = DbContext.Orders
+                        .Where(a => a.OrderDate <=date2 && a.OrderDate >= date1 )
+                        .ToList();
+            }
+            catch (Exception)
+            {
+                throw new Exception("Get list orders by date unsuccessfully");
+            }
+            return listOrders;
+        }
     }
 
     
