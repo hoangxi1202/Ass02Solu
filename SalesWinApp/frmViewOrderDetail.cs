@@ -17,6 +17,7 @@ namespace SalesWinApp;
 public partial class frmViewOrderDetail : Form
 {
     public IOrderDetailRepository OrderDetailRepository { get; set; }
+    public IProductRepository ProductRepository { get; set; }
     public bool InsertOrUpdate { get; set; }
     public OrderDetail OrderDetailInfo { get; set; }
     public string OrderID { get; set; }
@@ -40,11 +41,14 @@ public partial class frmViewOrderDetail : Form
                 errors.orderIdError = "Order ID must be the number format and greater than 0!";
             }
 
-            string productId = txtProductID.Text;
-            if (regex.IsMatch(productId) == false || productId.Trim().Equals("") || int.Parse(productId) < 0)
+            List<Product> listProduct = ProductRepository.GetListProducts();
+            int ProductID = -1;
+            foreach (var item in listProduct)
             {
-                found = true;
-                errors.productIdError = "Product ID must be the number format and greater than 0!";
+                if (item.ProductName.Equals(txtProductID.Text))
+                {
+                    ProductID = item.ProductId;
+                }
             }
 
             string quantity = txtQuantity.Text;
@@ -76,7 +80,7 @@ public partial class frmViewOrderDetail : Form
                 OrderDetail orderDetail = new OrderDetail
                 {
                     OrderId = int.Parse(orderId),
-                    ProductId = int.Parse(productId),
+                    ProductId = ProductID,
                     Quantity = int.Parse(quantity),
                     Discount = float.Parse(discount),
                     UnitPrice = decimal.Parse(txtPrice.Text)
@@ -105,11 +109,15 @@ public partial class frmViewOrderDetail : Form
     {
         txtOrderID.Enabled = false;
         txtProductID.Enabled = !InsertOrUpdate;
+        txtProductID.DataSource = ProductRepository.GetProductNames();
         
         if (InsertOrUpdate == true)
         {
             txtOrderID.Text = OrderDetailInfo.OrderId.ToString();
-            txtProductID.Text = OrderDetailInfo.ProductId.ToString();
+            //txtProductID.Text = OrderDetailInfo.ProductId.ToString();
+            //cbProduct.Text = productRepository.GetProductById(int.Parse(dgvOrderDetails.Rows[index].Cells[1].Value.ToString())).ProductName;
+            string id = OrderDetailInfo.ProductId.ToString();
+            txtProductID.Text = ProductRepository.GetProductById(int.Parse(id)).ProductName;
             txtPrice.Text = OrderDetailInfo.UnitPrice.ToString();
             txtQuantity.Text = OrderDetailInfo.Quantity.ToString();
             txtDiscount.Text = OrderDetailInfo.Discount.ToString();

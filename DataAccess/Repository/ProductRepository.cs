@@ -17,6 +17,10 @@ namespace BusinessObject.Repository
 
         public List<Product> GetListProducts() => ProductDAO.Instance.GetListProducts();
 
+        public Product GetProductById(int id) => ProductDAO.Instance.GetProduct(id);
+
+        public List<string> GetProductNames() => ProductDAO.Instance.GetProductsName();
+
         public void UpdateProduct(Product product) => ProductDAO.Instance.UpdateProduct(product);
     }
 }

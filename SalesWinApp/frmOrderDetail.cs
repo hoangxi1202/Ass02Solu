@@ -14,6 +14,7 @@ namespace SalesWinApp
 {
     public partial class frmOrderDetail : Form
     {
+        public IProductRepository productRepository = new ProductRepository();
         public IOrderDetailRepository orderDetailRepository = new OrderDetailRepository();
         public BindingSource source;
         public Order OrderInfo { get; set; }
@@ -47,6 +48,7 @@ namespace SalesWinApp
                 {
                     btnDelete.Enabled = true;
                 }
+                cbProduct.DataSource = productRepository.GetProductNames();
 
             }
             catch (Exception ex)
@@ -108,8 +110,17 @@ namespace SalesWinApp
             {
                 int orderID;
                 dynamic check = int.TryParse(txtOrderID.Text, out orderID);
-                int productID;
-                check = int.TryParse(cbProduct.Text, out productID);
+                //int productID;
+                //check = int.TryParse(cbProduct.Text, out productID);
+                List<Product> listProduct = productRepository.GetListProducts();
+                int ProductID = -1;
+                foreach (var item in listProduct)
+                {
+                    if (item.ProductName.Equals(cbProduct.Text))
+                    {
+                        ProductID = item.ProductId;
+                    }
+                }
                 string price = txtPrice.Text;
                 string quantity = txtQuantity.Text;
                 string discount = txtDiscount.Text;
@@ -119,7 +130,7 @@ namespace SalesWinApp
                 orderDetail = new OrderDetail
                 {
                     OrderId = orderID,
-                    ProductId = productID,
+                    ProductId = ProductID,
                     UnitPrice = priceCheck,
                     Quantity =  int.Parse(quantity),
                     Discount = float.Parse(discount)
@@ -138,7 +149,9 @@ namespace SalesWinApp
                 Text = "Update a order detail",
                 InsertOrUpdate = true,
                 OrderDetailInfo = GetOrderDetailObject(),
-                OrderDetailRepository = orderDetailRepository
+                OrderDetailRepository = orderDetailRepository,
+                ProductRepository = productRepository,
+                
             };
             if (frmViewOrderDetail.ShowDialog() == DialogResult.OK)
             {
@@ -154,8 +167,9 @@ namespace SalesWinApp
             txtPrice.Clear();
             txtDiscount.Clear();
             txtQuantity.Clear();
+            cbProduct.Text = "";
             txtOrderID.Text = dgvOrderDetails.Rows[index].Cells[0].Value.ToString();
-            cbProduct.Text = dgvOrderDetails.Rows[index].Cells[1].Value.ToString();
+            cbProduct.Text = productRepository.GetProductById(int.Parse(dgvOrderDetails.Rows[index].Cells[1].Value.ToString())).ProductName;
             txtDiscount.Text = dgvOrderDetails.Rows[index].Cells[4].Value.ToString();
             txtQuantity.Text = dgvOrderDetails.Rows[index].Cells[3].Value.ToString();
             txtPrice.Text = dgvOrderDetails.Rows[index].Cells[2].Value.ToString();

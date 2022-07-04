@@ -10,6 +10,8 @@ namespace BusinessObject.Repository
 {
     public interface IProductRepository
     {
+        public Product GetProductById(int id);
+        public List<string> GetProductNames();
         public List<Product> GetListProducts();
         public void CreateProduct(Product product);
         public void UpdateProduct(Product product);

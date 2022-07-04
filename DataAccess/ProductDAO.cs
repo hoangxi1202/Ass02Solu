@@ -41,6 +41,25 @@ namespace BusinessObject.DataAccess
             }
             return listProducts;
         }
+
+        public List<string> GetProductsName()
+        {
+            List<string> listProductName = new List<string>();
+            try
+            {
+                FStoreContext DbContext = new FStoreContext();
+                List<Product> listProduct = DbContext.Products.ToList();
+                foreach (var item in listProduct)
+                {
+                    listProductName.Add(item.ProductName);
+                }
+            }
+            catch (Exception)
+            {
+                throw new Exception("Get Product Name List unsuccessfully");
+            }
+            return listProductName;
+        }
         public void CreateProduct(Product product)
         {
             try
@@ -80,6 +99,21 @@ namespace BusinessObject.DataAccess
             {
                 throw new Exception("Delete product fail");
             }
+        }
+
+        public Product GetProduct(int id)
+        {
+            Product? product = null;
+            try
+            {
+                FStoreContext DbContext = new FStoreContext();
+                product = DbContext.Products.SingleOrDefault(product => product.ProductId == id);
+            }
+            catch (Exception)
+            {
+                throw new Exception("Get Product fail");
+            }
+            return product;
         }
 
     }
