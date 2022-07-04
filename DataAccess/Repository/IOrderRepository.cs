@@ -15,5 +15,6 @@ namespace BusinessObject.Repository
         public void AddNewOrder(Order order);
         public void UpdateOrder(Order order);
         public void DeleteOrder(int orderID);
+        public List<Order> GetOrderbyDate(DateTime date1, DateTime date2);
     }
 }

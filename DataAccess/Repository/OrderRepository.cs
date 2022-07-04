@@ -9,6 +9,8 @@ namespace BusinessObject.Repository
 
         public void DeleteOrder(int orderID) => OrderDAO.Instance.DeleteOrder(orderID);
 
+        public List<Order> GetOrderbyDate(DateTime date1, DateTime date2) =>OrderDAO.Instance.GetOrdersByDate(date1, date2);    
+
         public List<Order> GetOrderByMemberID(int memberID) => OrderDAO.Instance.GetOrderByMemberID(memberID);
 
         public List<Order> GetOrders() => OrderDAO.Instance.GetOrders();
