@@ -29,12 +29,19 @@ namespace SalesWinApp
                     frmMain frmMain;
                     if (isAdmin)
                     {
-                        frmMain = new frmMain(isAdmin);
+                        frmMain = new frmMain
+                        {
+                            IsAdmin = isAdmin
+                        };
                     }
                     else
                     {
                         Member mem = MemberRepository.GetMemberByEmail(userName);
-                        frmMain = new frmMain(isAdmin, mem);
+                        frmMain = new frmMain
+                        {
+                            IsAdmin = isAdmin,
+                            Mem = mem
+                        };
                     }
                     frmMain.ShowDialog();
                     this.Close();

@@ -9,7 +9,7 @@ namespace SalesWinApp
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new frmReport());
+            Application.Run(new frmLogin());
         }
     }
 }
