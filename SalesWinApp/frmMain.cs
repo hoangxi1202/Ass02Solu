@@ -16,17 +16,7 @@ namespace SalesWinApp
         {
             InitializeComponent();
         }
-        public frmMain(bool isAdmin)
-        {
-            InitializeComponent();
-            IsAdmin = isAdmin;
-        }
-        public frmMain(bool isAdmin, Member member)
-        {
-            InitializeComponent();
-            IsAdmin = isAdmin;
-            Mem = member;
-        }
+       
         public bool IsAdmin { get; set; }
         public Member Mem { get; set; }
         void authen()
@@ -47,11 +37,19 @@ namespace SalesWinApp
             frmMember frm;
             if (IsAdmin)
             {
-                frm = new frmMember(IsAdmin);
+                frm = new frmMember
+                {
+                    IsAdmin = IsAdmin
+                };
             }
             else
             {
-                frm = new frmMember(IsAdmin,Mem);
+                frm = new frmMember
+                {
+                    IsAdmin = IsAdmin,
+                    Mem = Mem
+                };
+
             }
             if (checkMidChildren(frm.Name))
             {
@@ -78,11 +76,19 @@ namespace SalesWinApp
             frmOrder frm = new frmOrder();
             if (IsAdmin)
             {
-                frm = new frmOrder(IsAdmin);
+                frm = new frmOrder
+                {
+                    IsAdmin = IsAdmin
+                };
             }
             else
             {
-                frm = new frmOrder(IsAdmin, Mem);
+                frm = new frmOrder
+                {
+                    IsAdmin = IsAdmin,
+                    Mem = Mem
+
+                };
             }
 
             if (checkMidChildren(frm.Name))

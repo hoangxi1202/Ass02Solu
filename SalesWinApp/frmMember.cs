@@ -9,17 +9,7 @@ namespace SalesWinApp
         {
             InitializeComponent();
         }
-        public frmMember(bool isAdmin)
-        {
-            InitializeComponent();
-            IsAdmin = isAdmin;
-        }
-        public frmMember(bool isAdmin, Member mem)
-        {
-            InitializeComponent();
-            IsAdmin = isAdmin;
-            Mem = mem;
-        }
+        
         IMemberRepository memberRepository = new MemberRepository();
         public bool IsAdmin { get; set; }
         public Member Mem { get; set; }
@@ -151,14 +141,15 @@ namespace SalesWinApp
                 try
                 {
                     var member = GetMemberObject();
-                    if(member.MemberId == Mem.MemberId)
-                    {
-                        MessageBox.Show("Login Successfully", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);                     
-                    }
-                    else
-                    {
+                    //if(Mem != null)
+                    //if(member.MemberId == Mem.MemberId)
+                    //{
+                    //    MessageBox.Show("Login Successfully", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);                     
+                    //}
+                    //else
+                    //{
                         memberRepository.DeleteMember(member.MemberId);
-                    }                   
+                    //}                   
                     var members1 = memberRepository.GetMembers();
                     LoadMemberList(members1);
                 }
